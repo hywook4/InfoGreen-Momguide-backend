@@ -142,10 +142,11 @@ router.get('/details', (req, res) => {
                     model: db.LivingDB,
                     through: {
                         attributes: ['createdAt', 'startedAt', 'finishedAt'],
-                        where: {'living_index': id}
+                        where: {'living_index': id},
                     },
                     required: true
-                }]
+                }],
+                order: [['ewg', 'DESC']]
             }).then((result) => {
                 res.json({
                     product: livingResult,
