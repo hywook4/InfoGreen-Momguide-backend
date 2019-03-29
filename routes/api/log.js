@@ -33,7 +33,7 @@ router.post('/tip', async (req, res)=>{
     console.log(req.body);
     const log = await db.LogTip.create({
         nickName: req.body.nickName,
-        tipId: req.body.eventId,
+        tipId: req.body.tipId,
         title: req.body.title
     }).catch(Sequelize.ValidationError, (err) => {
         if(err){
