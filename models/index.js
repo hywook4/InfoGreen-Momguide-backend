@@ -109,6 +109,13 @@ const Faq = require('./Faq')(sequelize, Sequelize);
 
 const Slider = require('./Slider')(sequelize, Sequelize);
 
+const LogEvent = require('./LogEvent')(sequelize, Sequelize);
+const LogPrice = require('./LogPrice')(sequelize, Sequelize);
+const LogProduct = require('./LogProduct')(sequelize, Sequelize);
+const LogSearch = require('./LogSearch')(sequelize, Sequelize);
+const LogTip = require('./LogTip')(sequelize, Sequelize);
+
+
 module.exports = {
     CosmeticIngredient,
     CosmeticDB,
@@ -133,5 +140,10 @@ module.exports = {
     PrivateAlarm,
     Faq,
     Slider,
+    LogEvent,
+    LogPrice,
+    LogProduct,
+    LogSearch,
+    LogTip,
     sequelize
 };

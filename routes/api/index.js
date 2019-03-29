@@ -12,5 +12,6 @@ router.use('/like', require('./like'));
 router.use('/report', require('./report'));
 router.use('/alarm', require('./alarm'));
 router.use('/main', require('./main'));
+router.use('/log', require('./log'));
 
 module.exports = router;

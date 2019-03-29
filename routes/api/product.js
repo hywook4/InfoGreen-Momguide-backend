@@ -288,6 +288,9 @@ router.get('/category', async (req, res) => {
             },
             {
                 'brand': db.sequelize.where(db.sequelize.fn('LOWER', db.sequelize.col('brand')), 'LIKE', '%' + searchInput.toLowerCase() + '%')
+            },
+            {
+                'madeBy': db.sequelize.where(db.sequelize.fn('LOWER', db.sequelize.col('madeBy')), 'LIKE', '%' + searchInput.toLowerCase() + '%')
             }
         ]
     } : {};
@@ -311,7 +314,8 @@ router.get('/category', async (req, res) => {
             whereOption['includeMiddleDanger'] = !middleDangerExclude;
         if(careExclude)
             whereOption['includeCare'] = !careExclude;
-
+        
+        
         db.CosmeticDB.findAndCountAll({
             where: whereOption
         }).then((data) => {
@@ -365,6 +369,7 @@ router.get('/category', async (req, res) => {
             where: whereOption
         });
         const livingCount = data.count;
+
         data = await db.CosmeticDB.findAndCountAll({
             where: whereOption
         });
