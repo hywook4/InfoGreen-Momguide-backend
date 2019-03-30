@@ -288,9 +288,6 @@ router.get('/category', async (req, res) => {
             },
             {
                 'brand': db.sequelize.where(db.sequelize.fn('LOWER', db.sequelize.col('brand')), 'LIKE', '%' + searchInput.toLowerCase() + '%')
-            },
-            {
-                'madeBy': db.sequelize.where(db.sequelize.fn('LOWER', db.sequelize.col('madeBy')), 'LIKE', '%' + searchInput.toLowerCase() + '%')
             }
         ]
     } : {};
